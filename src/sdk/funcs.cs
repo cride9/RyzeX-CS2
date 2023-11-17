@@ -12,14 +12,6 @@ using System.Drawing.Imaging;
 
 namespace SDK.src.sdk {
 
-    public static class globals {
-
-        public static bool Initialize( ) {
-
-            return true;
-        }
-    }
-
     public static class functions {
 
         [DllImport( "user32.dll" )]

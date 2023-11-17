@@ -1,5 +1,7 @@
 using SDK.dependencies.memory;
 using SDK.src;
+using SDK.src.esp;
+using SDK.src.movement;
 using SDK.src.offsets;
 using SDK.src.sdk;
 
@@ -17,6 +19,10 @@ namespace SDK {
         static bool bVisible = true;
 
         private IntPtr targetWindowHandle;
+
+        private static playeresp esp = new( );
+        private static bunnyhop bhop = new( );
+
         private void Init( object sender, EventArgs e ) {
 
             Timer.Start( );
@@ -27,10 +33,14 @@ namespace SDK {
 
             if ( !globals.Initialize( ) )
                 throw new Exception( "Failed to get globals" );
+
+            esp.Run( true );
+            bhop.Run( true );
         }
 
         private void MenuOpener( object? sender, EventArgs e ) {
 
+            globals.Initialize( );
             if ( ( functions.GetAsyncKeyState( Keys.Insert ) & 1 ) > 0 )
                 bVisible = !bVisible;
 

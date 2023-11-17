@@ -41,6 +41,7 @@ namespace SDK.dependencies.memory {
         public bool Write<T>( double dbValue ) => Memory.WriteMemory( szAddress, dicTypes[ typeof( T ) ], dbValue.ToString( ) );
 
         /* Non-decleared address functions (static) */
+        public static T Read<T>( string read ) => Memory.ReadMemory<T>( read );
         public static T Read<T>( long uOffset ) => Memory.ReadMemory<T>( $"{_( uOffset )}" );
         public static T Read<T>( long uOffset, long uPadding ) => Memory.ReadMemory<T>( $"{_( uOffset + uPadding )}" );
         public static T Read<T>( DLL iModule, long uOffset ) => Memory.ReadMemory<T>( $"{Modules[ ( int )iModule ]}+{_( uOffset )}" );

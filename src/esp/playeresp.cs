@@ -1,4 +1,5 @@
-﻿using SDK.src.sdk;
+﻿using SDK.src.offsets;
+using SDK.src.sdk;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,17 @@ namespace SDK.src.esp {
 
             while ( true ) {
 
-                //const bool bIsEnemy = globals.uLocalPlayerPawn.GetTeam() == ;
+                List<CBaseEntity> cBaseEntities = new();
+                entities.GetEntities( cBaseEntities );
+
+                cBaseEntities.ForEach( it => {
+
+                    bool bIsEnemy = globals.uLocalPawn!.GetTeam != it.GetTeam;
+                    bool bIsTeammate = globals.uLocalPawn!.GetTeam == it.GetTeam;
+
+                    var test1 = it.GetAbsOrigin( );
+                    var test2 = globals.uLocalPawn.GetAbsOrigin( );
+                } );
             }
         }
     }

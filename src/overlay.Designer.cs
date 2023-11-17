@@ -23,16 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent( ) {
-            panel1 = new Panel( );
             SuspendLayout( );
-            // 
-            // panel1
-            // 
-            panel1.Location = new Point( 512, 196 );
-            panel1.Name = "panel1";
-            panel1.Size = new Size( 131, 242 );
-            panel1.TabIndex = 0;
-            panel1.Paint +=  PanelBorder ;
             // 
             // overlay
             // 
@@ -41,7 +32,6 @@
             BackColor = Color.Black;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size( 800, 450 );
-            Controls.Add( panel1 );
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Name = "overlay";
@@ -50,7 +40,5 @@
         }
 
         #endregion
-
-        private Panel panel1;
     }
 }

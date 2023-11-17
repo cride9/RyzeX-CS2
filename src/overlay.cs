@@ -41,12 +41,12 @@ namespace SDK.src {
         private IntPtr targetWindowHandle; 
 
         private void UpdateOverlayPosition( ) {
+
             if ( functions.GetWindowRect( targetWindowHandle, out functions.RECT targetRect ) ) {
                 // Set the overlay position and size based on the target window
                 Location = new Point( targetRect.Left, targetRect.Top );
                 Size = new Size( targetRect.Right - targetRect.Left, targetRect.Bottom - targetRect.Top );
             }
-            Refresh( );
         }
 
         protected override void OnLoad( EventArgs e ) {
@@ -54,7 +54,7 @@ namespace SDK.src {
 
             // Start a timer to update overlay position periodically
             System.Windows.Forms.Timer timer = new( );
-            timer.Interval = 10; // Adjust the interval as needed
+            timer.Interval = 1; // Adjust the interval as needed
             timer.Tick += ( sender, args ) => UpdateOverlayPosition( );
             timer.Start( );
         }
